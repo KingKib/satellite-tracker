@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-message(STATUS "Before project(): CMAKE_BUILD_TYPE='${CMAKE_BUILD_TYPE}'")
 project(SatelliteTracker VERSION 0.1.0 LANGUAGES CXX)
-message(STATUS "After project(): CMAKE_BUILD_TYPE='${CMAKE_BUILD_TYPE}'")
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -22,8 +20,6 @@ if(NOT CMAKE_CONFIGURATION_TYPES)
     endif()
                                                                                                           # in the cache to "Debug", "Release", "MinSizeRel", and "RelWithDebInfo".
 endif()
-message(STATUS "CMAKE_BUILD_TYPE='${CMAKE_BUILD_TYPE}'")
-message(STATUS "CMAKE_CONFIGURATION_TYPES='${CMAKE_CONFIGURATION_TYPES}'")
 
 add_subdirectory(src)
 add_subdirectory(tests)
