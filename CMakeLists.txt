@@ -1,5 +1,11 @@
 cmake_minimum_required(VERSION 3.20)
 project(SatelliteTracker VERSION 0.1.0 LANGUAGES CXX) # Standard to use Pascal Case for project names.
+
+configure_file(
+    ${PROJECT_SOURCE_DIR}/include/satellite_tracker/version.h.in
+    ${PROJECT_BINARY_DIR}/include/satellite_tracker/version.h
+ ) # Configures the file "version.h.in" to generate "version.h" in the binary directory, replacing placeholders with actual version information.
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
