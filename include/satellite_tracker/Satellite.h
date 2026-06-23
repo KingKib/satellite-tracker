@@ -11,7 +11,7 @@
 #pragma once
 
 #include <string>
-#include "Types.h"
+#include "satellite_tracker/Types.h"
 
 /// @brief Represents a single satellite and its orbital data
 class Satellite {
