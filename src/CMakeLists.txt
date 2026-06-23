@@ -1,4 +1,4 @@
-add_executable(satellite_tracker main.cpp) # Creates an executable target named "satellite_tracker" from the source file "main.cpp".
+add_executable(satellite_tracker main.cpp Satellite.cpp) # Creates an executable target named "satellite_tracker" from the source file "main.cpp" and "Satellite.cpp"
 target_include_directories(satellite_tracker PRIVATE 
     ${PROJECT_SOURCE_DIR}/include # Adds the directory "${PROJECT_BINARY_DIR}/generated/version.h" 
     ${PROJECT_BINARY_DIR}/include # to the list of include directories for the "satellite_tracker" target. 
