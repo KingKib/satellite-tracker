@@ -1,18 +1,28 @@
-add_executable(satellite_tracker main.cpp Satellite.cpp) # Creates an executable target named "satellite_tracker" from the source file "main.cpp" and "Satellite.cpp"
-target_include_directories(satellite_tracker PRIVATE 
-    ${PROJECT_SOURCE_DIR}/include # Adds the directory "${PROJECT_BINARY_DIR}/generated/version.h" 
-    ${PROJECT_BINARY_DIR}/include # to the list of include directories for the "satellite_tracker" target. 
-)                                                          # The "PRIVATE" keyword indicates that this include directory is only used 
-                                                           # for compiling the "satellite_tracker" target and is not propagated to targets 
-                                                           # that link against it.
-target_compile_features(satellite_tracker PRIVATE cxx_std_17) # Specifies that the "satellite_tracker" target requires C++17 features. 
-                                                    
-if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang|AppleClang|IntelLLVM") # Checks if the C++ compiler being used is GNU, Clang, AppleClang, or IntelLLVM.
-    target_compile_options(satellite_tracker PRIVATE # Adds compiler options to the "satellite_tracker" target.
+add_library(satellite_tracker_core Satellite.cpp TLEParser.cpp)
+
+add_executable(satellite_tracker main.cpp)
+target_link_libraries(satellite_tracker PRIVATE satellite_tracker_core)
+
+target_include_directories(satellite_tracker_core PUBLIC
+    ${PROJECT_SOURCE_DIR}/include
+    ${PROJECT_BINARY_DIR}/include
+)
+                 
+target_compile_features(satellite_tracker_core PUBLIC cxx_std_17)
+
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang|AppleClang|IntelLLVM") 
+    target_compile_options(satellite_tracker PRIVATE 
         -Wpedantic
     )
-elseif(MSVC) # Checks if the C++ compiler being used is Microsoft Visual C++ (MSVC).
-    target_compile_options(satellite_tracker PRIVATE # Adds compiler options to the "satellite_tracker" target for MSVC.
+    target_compile_options(satellite_tracker_core PRIVATE 
+        -Wpedantic
+    )
+elseif(MSVC)
+    target_compile_options(satellite_tracker PRIVATE
+        /W4
+        /permissive-
+    )
+    target_compile_options(satellite_tracker_core PRIVATE
         /W4
         /permissive-
     )
