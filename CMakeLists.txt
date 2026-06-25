@@ -24,5 +24,14 @@ if(NOT CMAKE_CONFIGURATION_TYPES) # Checks if the CMAKE_CONFIGURATION_TYPES vari
     endif()
 endif()
 
+include(FetchContent)
+FetchContent_Declare(
+    Catch2
+    GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+    GIT_TAG        v3.5.2
+)
+FetchContent_MakeAvailable(Catch2)
+enable_testing()
+
 add_subdirectory(src)
 add_subdirectory(tests)
