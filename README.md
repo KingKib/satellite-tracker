@@ -241,7 +241,7 @@ Or execute the test binary directly:
 
 Current version:
 
-**0.1.0**
+**1.0.0**
 
 The project version is automatically derived from the `project()` declaration in the top-level `CMakeLists.txt`.
 
