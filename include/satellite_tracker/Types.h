@@ -9,7 +9,8 @@
 #include <string>
 
 /// @brief All satellite information
-struct TLEData {
+struct TLEData 
+{
     /// Satellite name (from TLE data)
     std::string name;
     /// First line of the TLE data
@@ -36,11 +37,22 @@ struct TLEData {
 };
 
 /// @brief Satellite positional information 
-struct Position {
+struct Position
+{
     /// Geographic latitude in degrees (-90 to 90)
     double latitude;  
-    /// geographic longitude in degrees (-180 to 180)
+    /// Geographic longitude in degrees (-180 to 180)
     double longitude; 
     /// Altitude above Earth's surface in kilometers
-    double altitude;  
+    double altitude;
+};
+/// @brief Satellite positional information in ECI
+struct ECIPosition
+{
+    /// X axis position in Earth-Centered Inertial frame (km)
+    double x;
+    /// Y axis position in Earth-Centered Inertial frame (km)
+    double y;
+    /// Z axis position in Earth-Centered Inertial frame (km)
+    double z;
 };
