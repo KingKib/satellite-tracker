@@ -1,4 +1,4 @@
-add_library(satellite_tracker_core Satellite.cpp TLEParser.cpp)
+add_library(satellite_tracker_core Satellite.cpp TLEParser.cpp Propagator.cpp)
 
 add_executable(satellite_tracker main.cpp)
 target_link_libraries(satellite_tracker PRIVATE satellite_tracker_core)
