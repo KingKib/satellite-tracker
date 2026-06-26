@@ -2,10 +2,12 @@ add_library(satellite_tracker_core Satellite.cpp TLEParser.cpp Propagator.cpp)
 
 add_executable(satellite_tracker main.cpp)
 target_link_libraries(satellite_tracker PRIVATE satellite_tracker_core)
+target_link_libraries(satellite_tracker_core PRIVATE sgp4)
 
 target_include_directories(satellite_tracker_core PUBLIC
     ${PROJECT_SOURCE_DIR}/include
     ${PROJECT_BINARY_DIR}/include
+    ${PROJECT_SOURCE_DIR}/external/sgp4/libsgp4
 )
                  
 target_compile_features(satellite_tracker_core PUBLIC cxx_std_17)

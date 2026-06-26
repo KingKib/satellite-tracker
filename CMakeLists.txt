@@ -33,5 +33,6 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Catch2)
 enable_testing()
 
+add_subdirectory(external/sgp4/libsgp4)
 add_subdirectory(src)
 add_subdirectory(tests)
